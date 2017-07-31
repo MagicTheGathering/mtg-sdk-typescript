@@ -7,6 +7,10 @@ An sdk for https://magicthegathering.io/ written in Typescript. Works for JavaSc
 
 ## Installation
 
+```bat
+npm install mtgsdk-ts
+```
+
 As of July 31st, 2017, all features of https://magicthegathering.io/ are supported.
 
 ## Examples
