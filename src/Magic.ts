@@ -25,16 +25,18 @@ export class MagicEmitter<T> extends EventEmitter {
 		return this._cancelled;
 	}
 
-	on (event: "data", listener: (this: this, data: T) => any): this;
-	on (event: "end", listener: (this: this) => any): this;
-	on (event: "error", listener: (this: this, err: Error) => any): this;
-	on (event: string, listener: (this: this, ...args: any[]) => any) {
+	on (event: "data", listener: (data: T) => any): this;
+	on (event: "end", listener: () => any): this;
+	on (event: "cancel", listener: () => any): this;
+	on (event: "error", listener: (err: Error) => any): this;
+	on (event: string, listener: (...args: any[]) => any) {
 		super.on(event, listener);
 		return this;
 	}
 
 	emit (event: "data", data: T): boolean;
 	emit (event: "end"): boolean;
+	emit (event: "cancel"): boolean;
 	emit (event: "error", error: Error): boolean;
 	emit (event: string, ...data: any[]) {
 		return super.emit(event, ...data);
@@ -74,7 +76,10 @@ export class ApiQuery<ResultType = any, FilterType = any> {
 			}).then((data: any) => {
 				const items: ResultType[] = data[this.queryFor];
 				if (items.length > 0) {
-					for (const item of items) emitter.emit("data", item);
+					for (const item of items) {
+						emitter.emit("data", item);
+						if (emitter.cancelled) return emitter.emit("cancel");
+					}
 					if (items.length == (filter.pageSize || 100)) return getPage(page + 1);
 				}
 				emitter.emit("end");

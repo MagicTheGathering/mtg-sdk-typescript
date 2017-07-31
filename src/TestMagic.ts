@@ -31,6 +31,20 @@ describe("Cards", () => {
 			done();
 		});
 	});
+	it("all-cancel", (done) => {
+		const results: Magic.Card[] = [];
+		const emitter = Magic.Cards.all({ name: "Doom Blade", pageSize: 3 });
+		emitter.on("data", (card) => {
+			expect(card.name).to.equal("Doom Blade");
+			results.push(card);
+			if (results.length == 5) emitter.cancel();
+		}).on("end", () => {
+			throw new Error("Did not expect to reach this point");
+		}).on("cancel", () => {
+			expect(results.length).to.be.eq(5);
+			done();
+		});
+	});
 });
 
 describe("Sets", () => {
