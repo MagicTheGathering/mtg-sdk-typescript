@@ -34,9 +34,11 @@ gulp.task("mocha", () => {
 		.pipe(mocha({ reporter: "nyan" }));
 });
 
-gulp.task("watch", () => {
+gulp.task("compile-test", () => {
 	const runSequence = requireCache("run-sequence");
-	const update = () => runSequence("ts", "mocha");
-	update();
-	gulp.watch("./src/**/*.ts", update);
+	runSequence("ts", "mocha");
+});
+
+gulp.task("watch", ["compile-test"], () => {
+	gulp.watch("./src/**/*.ts", ["compile-test"]);
 });
