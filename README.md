@@ -1,17 +1,18 @@
 # mtg-sdk-typescript
-An sdk for https://magicthegathering.io/ written in Typescript. Works for JavaScript and TypeScript development.
-
 [![npm](https://img.shields.io/npm/v/mtgsdk-ts.svg?style=flat-square)](https://www.npmjs.com/package/mtgsdk-ts)
 [![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg?style=flat-square)](https://github.com/Aarilight/mtg-sdk-typescript)
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)](https://travis-ci.org/Aarilight/mtg-sdk-typescript)
+
+An sdk for https://magicthegathering.io/ written in Typescript. Works for JavaScript and TypeScript development.
+
+As of July 31st, 2017, all features of https://magicthegathering.io/ are supported.
+
 
 ## Installation
 
 ```bat
 npm install mtgsdk-ts
 ```
-
-As of July 31st, 2017, all features of https://magicthegathering.io/ are supported.
 
 ## Examples
 In the following examples, requiring the package is assumed.
@@ -159,3 +160,8 @@ Adds a listener for when the emitter errors. This method returns the emitter obj
 ### `MagicEmitter.cancel(): void;`
 
 Cancels emitting data. Only emits the "cancel" event, not the "end" event.
+
+
+## MIT License
+
+[Copyright 2017 Mackenzie McClane](./LICENSE)
