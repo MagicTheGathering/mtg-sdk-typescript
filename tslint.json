@@ -1,0 +1,5 @@
+{
+	"extends": [
+		"C:/Users/Mackenzie/Github/other/config/tslint.json"
+	]
+}
