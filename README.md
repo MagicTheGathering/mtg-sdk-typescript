@@ -45,7 +45,7 @@ Magic.Cards.where({name: "Nicol"}).then(results => {
 
 Gets all cards. You can set the number of cards to include in each "page" of results, and the page to start on (the first page is 1, not 0). [See here for more information about the MagicEmitter](#magicemittert).
 
-In the following example, the cards are filtered by name. To see all options, visit [the API documentation](https://docs.magicthegathering.io/#api_v1cards_list).
+In the following example, the cards are filtered by type. To see all options, visit [the API documentation](https://docs.magicthegathering.io/#api_v1cards_list).
 ```ts
 Magic.Cards.all({type: "Planeswalker", page: 2, pageSize: 30}).on("data", card => {
 	console.log(card.name); 
