@@ -8,3 +8,8 @@ before_script:
   
 script:
   - gulp compile-test
+  
+notifications:
+  email:
+    on_success: never
+    on_failure: always
