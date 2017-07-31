@@ -31,7 +31,7 @@ gulp.task("ts", cb => {
 gulp.task("mocha", () => {
 	const mocha = requireCache("gulp-mocha");
 	gulp.src("out/TestMagic.js", { read: false })
-		.pipe(mocha({ reporter: "nyan" }));
+		.pipe(mocha({ reporter: "min" }));
 });
 
 gulp.task("compile-test", () => {
