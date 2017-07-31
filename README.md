@@ -22,7 +22,7 @@ import Magic = require("mtgsdk-ts");
 
 ### `Cards.find (id: string): Promise<Card>;` 
 
-Gets a single card from its ID
+Gets a single card from its ID.
 
 ```ts
 Magic.Cards.find("08618f8d5ebdc0c4d381ad11f0563dfebb21f4ee").then(result => console.log(result.name)); // Blood Scrivener
@@ -56,7 +56,7 @@ Magic.Cards.all({type: "Planeswalker", page: 2, pageSize: 30}).on("data", card =
 
 ### `Sets.find (id: string): Promise<Set>;` 
 
-Gets a single card from its ID
+Gets a single set from its ID.
 
 ```ts
 Magic.Sets.find("HOU").then(result => console.log(result.name)); // Hour of Devastation
