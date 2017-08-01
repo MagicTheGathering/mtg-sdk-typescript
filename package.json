@@ -1,6 +1,6 @@
 {
 	"name": "mtgsdk-ts",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	
 	"dependencies": {
 		"request-promise": "4.2.1",
