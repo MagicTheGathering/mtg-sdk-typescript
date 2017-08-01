@@ -162,6 +162,44 @@ Adds a listener for when the emitter errors. This method returns the emitter obj
 Cancels emitting data. Only emits the "cancel" event, not the "end" event.
 
 
+## Contributing
+
+Thanks for wanting to help out! Here's the setup you'll have to do:
+```bat
+git clone https://github.com/Yuudaari/mtg-sdk-typescript
+git clone https://github.com/Yuudaari/tslint.json
+cd mtg-sdk-typescript
+npm install
+```
+You can now make changes to the repository. 
+
+To compile:
+```bat
+gulp ts
+```
+To test:
+```bat
+gulp mocha
+```
+To compile, then test:
+```bat
+gulp compile-test
+```
+To compile and then test on every file change:
+```bat
+gulp watch
+```
+
+If you want to make large, complex changes, make an issue before creating a PR. If I disagree with the changes you want to make, and you've already made them all in a PR, it'll feel a lot worse than being shot down in an issue, before you've written it all.
+
+Pull Requests may be rejected if outside of the scope of the SDK, or not following the formatting rules. If tslint complains, I will complain. Please don't be mad.
+
+If you add a new feature, please include a test for it in your PR.
+
+Thanks again!
+
+
+
 ## MIT License
 
 [Copyright 2017 Mackenzie McClane](./LICENSE)
