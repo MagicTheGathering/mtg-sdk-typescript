@@ -1,6 +1,6 @@
 {
 	"name": "mtgsdk-ts",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	
 	"dependencies": {
 		"request-promise": "4.2.1",
@@ -9,11 +9,14 @@
 	"main": "./out/Magic.js",
 	
 	"description": "An sdk for https://magicthegathering.io/ written in Typescript. Works for JavaScript and TypeScript development.",
+	"keywords": [
+		
+	],
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/aarilight/mtg-sdk-typescript"
 	},
-	"license": "MIT",
 	
 	"devDependencies": {
 		"gulp": "3.9.1",
