@@ -32,7 +32,8 @@ gulp.task("ts", () => {
 gulp.task("mocha", () => {
 	const mocha = requireCache("gulp-mocha");
 	gulp.src("out/tests/Main.js", { read: false })
-		.pipe(mocha({ reporter: "min" }));
+		.pipe(mocha({ reporter: "min" }))
+		.on("error", () => process.exitCode = 1);
 });
 
 gulp.task("compile-test", () => {
