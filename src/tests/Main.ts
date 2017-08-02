@@ -1,8 +1,6 @@
 /// <reference types="mocha" />
 
-import chai = require("chai");
-chai.use(require("chai-as-promised"));
-const expect = chai.expect;
+import { expect } from "chai";
 
 import Magic = require("../Magic");
 
