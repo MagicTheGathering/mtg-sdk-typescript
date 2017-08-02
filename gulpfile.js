@@ -15,17 +15,18 @@ function requireCache(moduleName) {
 }
 
 let project;
-gulp.task("ts", cb => {
+gulp.task("ts", () => {
 	const typescript = requireCache("gulp-typescript");
-	if (!project) project = typescript.createProject("tsconfig.json", {
-		declaration: false,
-		isolatedModules: true
-	});
-	project.src()
+	const merge = requireCache("merge2");
+	if (!project) project = typescript.createProject("tsconfig.json");
+	const result = project.src()
 		.pipe(plumber())
-		.pipe(project(typescript.reporter.fullReporter(true))).js
-		.pipe(gulp.dest("out"))
-		.on("finish", cb);
+		.pipe(project());
+
+	return merge([
+		result.js.pipe(gulp.dest("out")),
+		result.dts.pipe(gulp.dest("out")),
+	]);
 });
 
 gulp.task("mocha", () => {

@@ -6,11 +6,9 @@
 		"moduleResolution": "node",
 		"forceConsistentCasingInFileNames": true,
 		"noImplicitAny": true,
-		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"removeComments": true,
-		"sourceMap": true,
 		"declaration": true
 	}
 }
