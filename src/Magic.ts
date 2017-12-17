@@ -1,8 +1,8 @@
 import { EventEmitter } from "events";
 import request = require("request-promise");
 
-import { Card, Set, CardFilter, SetFilter, PaginationFilter } from "./IMagic";
-export { Card, Set, CardFilter, SetFilter, PaginationFilter };
+import { Card, CardFilter, PaginationFilter, Set, SetFilter } from "./IMagic";
+export { Card, CardFilter, Set, SetFilter, PaginationFilter };
 
 const endpoint = "https://api.magicthegathering.io/v1";
 
@@ -15,7 +15,7 @@ function MakeQuery<T>(queryFor: string) {
 				json: true,
 			}) as any;
 			return (queryFor in result ? result[queryFor] : queryFor) as T;
-		}
+		},
 	};
 }
 
@@ -25,24 +25,24 @@ export class MagicEmitter<T> extends EventEmitter {
 		return this._cancelled;
 	}
 
-	on (event: "data", listener: (data: T) => any): this;
-	on (event: "end", listener: () => any): this;
-	on (event: "cancel", listener: () => any): this;
-	on (event: "error", listener: (err: Error) => any): this;
-	on (event: string, listener: (...args: any[]) => any) {
+	public on (event: "data", listener: (data: T) => any): this;
+	public on (event: "end", listener: () => any): this;
+	public on (event: "cancel", listener: () => any): this;
+	public on (event: "error", listener: (err: Error) => any): this;
+	public on (event: string, listener: (...args: any[]) => any) {
 		super.on(event, listener);
 		return this;
 	}
 
-	emit (event: "data", data: T): boolean;
-	emit (event: "end"): boolean;
-	emit (event: "cancel"): boolean;
-	emit (event: "error", error: Error): boolean;
-	emit (event: string, ...data: any[]) {
+	public emit (event: "data", data: T): boolean;
+	public emit (event: "end"): boolean;
+	public emit (event: "cancel"): boolean;
+	public emit (event: "error", error: Error): boolean;
+	public emit (event: string, ...data: any[]) {
 		return super.emit(event, ...data);
 	}
 
-	cancel () {
+	public cancel () {
 		this._cancelled = true;
 	}
 }
@@ -50,14 +50,14 @@ export class MagicEmitter<T> extends EventEmitter {
 export class ApiQuery<ResultType = any, FilterType = any> {
 	constructor(protected queryFor: string) { }
 
-	async find (id: string) {
+	public async find (id: string) {
 		return (await request({
 			uri: `${endpoint}/${this.queryFor}/${id}`,
 			json: true,
 		}) as any)[this.queryFor.slice(0, -1)] as ResultType;
 	}
 
-	async where (filter: FilterType) {
+	public async where (filter: FilterType) {
 		return (await request({
 			uri: `${endpoint}/${this.queryFor}`,
 			qs: filter,
@@ -65,7 +65,7 @@ export class ApiQuery<ResultType = any, FilterType = any> {
 		}) as any)[this.queryFor] as ResultType[];
 	}
 
-	all (filter?: FilterType & PaginationFilter) {
+	public all (filter?: FilterType & PaginationFilter) {
 		const emitter = new MagicEmitter<ResultType>();
 
 		const getPage = (page = 1) => {
@@ -97,7 +97,7 @@ export class SetQuery extends ApiQuery<Set, SetFilter> {
 		super("sets");
 	}
 
-	async generateBooster (setId: string) {
+	public async generateBooster (setId: string) {
 		return (await request({
 			uri: `${endpoint}/sets/${setId}/booster`,
 			json: true,

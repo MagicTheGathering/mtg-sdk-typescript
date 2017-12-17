@@ -15,7 +15,7 @@ describe("Magic", function () {
 		});
 		it("where", async () => {
 			const cards = await Magic.Cards.where({
-				name: `"Murder"`
+				name: `"Murder"`,
 			});
 			expect(cards.length).gte(3);
 			for (const card of cards) {
@@ -55,7 +55,7 @@ describe("Magic", function () {
 		});
 		it("where", async () => {
 			const sets = await Magic.Sets.where({
-				block: `Kaladesh`
+				block: `Kaladesh`,
 			});
 			expect(sets.length).eq(2);
 			for (const set of sets) {
@@ -65,7 +65,7 @@ describe("Magic", function () {
 		it("all", (done) => {
 			let count = 0;
 			Magic.Sets.all({}).on("data", () => count++).on("end", () => {
-				expect(count).eq(210);
+				expect(count).gte(216);
 				done();
 			});
 		});
@@ -93,7 +93,7 @@ describe("Magic", function () {
 		});
 		it("formats", async () => {
 			const formats = await Magic.Formats.all();
-			expect(formats.length).gte(36);
+			expect(formats.length).gte(20);
 		});
 	});
 });
