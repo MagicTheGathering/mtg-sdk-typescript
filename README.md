@@ -1,11 +1,11 @@
 # mtg-sdk-typescript
 [![npm](https://img.shields.io/npm/v/mtgsdk-ts.svg?style=flat-square)](https://www.npmjs.com/package/mtgsdk-ts)
-[![GitHub issues](https://img.shields.io/github/issues/Yuudaari/mtg-sdk-typescript.svg?style=flat-square)](https://github.com/Yuudaari/mtg-sdk-typescript)
-[![Travis](https://img.shields.io/travis/Yuudaari/mtg-sdk-typescript.svg?style=flat-square)](https://travis-ci.org/Yuudaari/mtg-sdk-typescript)
+[![GitHub issues](https://img.shields.io/github/issues/MagicTheGathering/mtg-sdk-typescript.svg?style=flat-square)](https://github.com/MagicTheGathering/mtg-sdk-typescript)
+[![Travis](https://img.shields.io/travis/MagicTheGathering/mtg-sdk-typescript.svg?style=flat-square)](https://travis-ci.org/MagicTheGathering/mtg-sdk-typescript)
 
 An sdk for https://magicthegathering.io/ written in Typescript. Works for JavaScript and TypeScript development.
 
-As of July 31st, 2017, all features of https://magicthegathering.io/ are supported.
+As of February 19th, 2018, all features of https://magicthegathering.io/ are supported.
 
 
 ## Installation
