@@ -166,7 +166,7 @@ Cancels emitting data. Only emits the "cancel" event, not the "end" event.
 
 Thanks for wanting to help out! Here's the setup you'll have to do:
 ```bat
-git clone https://github.com/Yuudaari/mtg-sdk-typescript
+git clone https://github.com/MagicTheGathering/mtg-sdk-typescript
 git clone https://github.com/Yuudaari/tslint.json
 cd mtg-sdk-typescript
 npm install
