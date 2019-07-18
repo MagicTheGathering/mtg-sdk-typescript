@@ -1,3 +1,8 @@
+
+## This SDK does not currently have a maintainer.
+Consider using the [scryfall-sdk](https://github.com/Yuudaari/scryfall-sdk) instead.
+
+
 # mtg-sdk-typescript
 [![npm](https://img.shields.io/npm/v/mtgsdk-ts.svg?style=flat-square)](https://www.npmjs.com/package/mtgsdk-ts)
 [![GitHub issues](https://img.shields.io/github/issues/MagicTheGathering/mtg-sdk-typescript.svg?style=flat-square)](https://github.com/MagicTheGathering/mtg-sdk-typescript)
